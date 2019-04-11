@@ -1,0 +1,6 @@
+hash: 3968a0300c6349e85338855a8b6a0fb08a4f7cdc24f6e9b230268c21ff0ec136
+updated: 2019-04-10T19:22:27.063520676-07:00
+imports:
+- name: github.com/go-pg/pg
+  version: 8739ab22578066a7615d80bf38d823af75793002
+testImports: []
