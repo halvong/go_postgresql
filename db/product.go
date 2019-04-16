@@ -25,6 +25,35 @@ type ProductItem struct {
 	IsActive bool `sql:"is_active"`
 }
 
+//----
+func (pi *ProductItem) Save(db *pg.DB) error {
+
+	insertErr := db.Insert(pi)
+
+	if insertErr != nil {
+		log.Printf("Error while inserting new item into DB, Reason: %v\n", insertErr)
+		return insertErr
+	} 
+	log.Printf("ProductItem %s inserted successfully.\n", pi.Name)	
+	return nil
+}
+
+//----
+func (pi *ProductItem) SaveAndReturn(db *pg.DB) (*ProductItem, error) {
+
+	InsertResult, insertErr := db.Model(pi).Returning("*").Insert()
+
+	if insertErr != nil {
+		log.Printf("Error while inserting new item, Reason: %v\n", insertErr)
+		return nil, insertErr 
+	}	
+
+	log.Printf("ProductIte Inserted successfully.\n")
+	log.Printf("Rows affected: %v\n", InsertResult.RowsAffected())
+	return pi, nil
+}
+
+//----
 func CreateProdItemsTable(db *pg.DB) error {
 	opts := &orm.CreateTableOptions{
 		IfNotExists: true,
@@ -37,4 +66,17 @@ func CreateProdItemsTable(db *pg.DB) error {
 	}
 	log.Printf("Table ProductItems created successfully.\n")
 	return nil
+}
+
+//----
+func(pi *ProductItem) SaveMultiple(db *pg.DB, items ...*ProductItem) error {
+
+	_, insertErr := db.Model(items).Insert()
+
+	if insertErr != nil {
+		log.Printf("Error while inserting bulk items, Reason: %v\n", insertErr)	
+		return insertErr
+	}
+	log.Printf("Buil Insert successful\n")
+	return nil	
 }

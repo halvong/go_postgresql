@@ -1,5 +1,5 @@
 GO Postgresql, Udemy
-4/11/2019, Thurs 
+4/16/2019, Tues 
 
 How to create tables from models using go-pg
 
