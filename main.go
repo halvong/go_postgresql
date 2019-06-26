@@ -2,17 +2,19 @@ package main
 
 import (
 	"log"
-	"time"
-	db "go_postgresql/db"
-	pg "github.com/go-pg/pg"
+	_ "time"
+	"go_postgresql/db"
+	_ "github.com/go-pg/pg"
 )
 
 func main() {
 	log.Printf("Hello World!\n")
 	pg_db := db.Connect()
-	SaveProduct(pg_db)
+	_ = pg_db
+	//SaveProduct(pg_db)
 }
 
+/*
 func SaveProduct(dbRef *pg.DB) {
 
 	newPI1 := &db.ProductItem {
@@ -78,4 +80,5 @@ func SaveProduct(dbRef *pg.DB) {
 		log.Printf("Error from save.\n")		
 	}
 }
+*/
 

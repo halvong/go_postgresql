@@ -55,15 +55,18 @@ func (pi *ProductItem) SaveAndReturn(db *pg.DB) (*ProductItem, error) {
 
 //----
 func CreateProdItemsTable(db *pg.DB) error {
-	opts := &orm.CreateTableOptions{
+
+	opts := &orm.CreateTableOptions {
 		IfNotExists: true,
 	}
 
 	createErr := db.CreateTable(&ProductItem{}, opts)
+
 	if createErr != nil {
 		log.Printf("Error while creating table productItems, Reason: %v\n", createErr)	
 		return createErr
 	}
+
 	log.Printf("Table ProductItems created successfully.\n")
 	return nil
 }

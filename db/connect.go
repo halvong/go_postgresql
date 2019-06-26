@@ -24,13 +24,9 @@ func Connect() *pg.DB {
 	}
 	
 	log.Printf("Connection to database successful.\n")
-	CreateProdItemsTable(db)
+	//CreateProdItemsTable(db)
 
 	return db
 
-	//closeErr := db.Close()
-	//if closeErr != nil {
-	//	log.Printf("Failed to close database.\n")
-	//}
 }
 

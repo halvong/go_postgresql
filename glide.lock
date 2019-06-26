@@ -1,6 +1,23 @@
-hash: 3968a0300c6349e85338855a8b6a0fb08a4f7cdc24f6e9b230268c21ff0ec136
-updated: 2019-04-10T19:22:27.063520676-07:00
+hash: 58791d69aa65417f2243f57670bf383fdc73ecd0ef910b6fcfac1a74a0624d7d
+updated: 2019-06-26T08:41:05.264703798-07:00
 imports:
 - name: github.com/go-pg/pg
-  version: 8739ab22578066a7615d80bf38d823af75793002
+  version: 11cb265cd96c769490bea4cdc3634ea2049197f6
+  subpackages:
+  - internal
+  - internal/iszero
+  - internal/parser
+  - internal/pool
+  - internal/struct_filter
+  - internal/tag
+  - orm
+  - types
+- name: github.com/jinzhu/inflection
+  version: f5c5f50e6090ae76a29240b61ae2a90dd810112e
+- name: golang.org/x/crypto
+  version: cc06ce4a13d484c0101a9e92913248488a75786d
+  subpackages:
+  - pbkdf2
+- name: mellium.im/sasl
+  version: 2a61779921b6e437e546b15bd4d92331e593ff75
 testImports: []
